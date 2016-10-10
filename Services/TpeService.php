@@ -46,26 +46,26 @@ class TpeService
         $kernel = $this->container->get('kernel');
 
         // Config du bundle
-        $this->version = $this->container->getParameter('rc_cmcic_paiement.serveur')['VERSION'];
+        $this->version = $this->container->getParameter('rc_paiement_cmcic.serveur')['VERSION'];
 
-        $configClient = $this->container->getParameter('rc_cmcic_paiement.client');
+        $configClient = $this->container->getParameter('rc_paiement_cmcic.client');
         $this->numero = $configClient['TPE'];
         $this->codeSociete = $configClient['CODE_SOCIETE'];
         $this->langue = $configClient['LANGUE'];
         $this->devise = $configClient['DEVISE'];
 
-        $configUrl = $this->container->getParameter('rc_cmcic_paiement.urls');
+        $configUrl = $this->container->getParameter('rc_paiement_cmcic.urls');
         $this->urlPaiement = $configUrl['URL_PAIEMENT'];
 
         // URL prod ou preprod en fonction de l'environnement (variable retour)
-        $configServeur = $this->container->getParameter('rc_cmcic_paiement.serveur');
+        $configServeur = $this->container->getParameter('rc_paiement_cmcic.serveur');
         if ($kernel->getEnvironment() != "prod") {
             $this->serveur = $configServeur['SERVEUR_PREPROD'];
         } else {
             $this->serveur = $configServeur['SERVEUR_PROD'];
         }
 
-        $this->cle = $this->container->getParameter('rc_cmcic_paiement.secret')['CLE'];
+        $this->cle = $this->container->getParameter('rc_paiement_cmcic.secret')['CLE'];
 
         // URL de retour /paiement/{status} success | "" | error
         $this->urlRetour = $this->container->get('router')->generate(
