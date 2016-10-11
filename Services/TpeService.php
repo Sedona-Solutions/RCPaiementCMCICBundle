@@ -19,18 +19,18 @@ class TpeService
     private static $fields = "%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*";
     private static $cgi1Fiels = "%s*%s*%s%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*%s";
 
-    private $version;
-    private $numero;
-    private $codeSociete;
-    private $langue;
-    private $devise;
-    private $cle;
-    private $urlPaiement;
-    private $serveur;
+    protected $version;
+    protected $numero;
+    protected $codeSociete;
+    protected $langue;
+    protected $devise;
+    protected $cle;
+    protected $urlPaiement;
+    protected $serveur;
 
-    private $urlRetour;
-    private $urlOk;
-    private $urlKo;
+    protected $urlRetour;
+    protected $urlOk;
+    protected $urlKo;
 
     private $finalReceipt;
 
